@@ -38,7 +38,8 @@ function productReducer(state = initialState, action) {
     case 'UPDATE_INVENTORY':
       let products = state.products.map(product => {
         if (product.name === payload) {
-          return { ...products, inventory: product.inventory - 1 };
+          console.log('STATE', product.name);
+          return { ...product, inventory: product.inventory - 1 };
         } else {
           return product;
         }
