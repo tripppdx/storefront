@@ -1,12 +1,16 @@
 import { connect } from 'react-redux';
 
 function SimpleCart(props) {
+  // let data = props.cart.cart.map(item => {
+  //   return { name: item.name, count: 1 };
+  // });
+
+  // console.log(data);
   return (
     <>
       <p>CART</p>
-      <p>CATEGORIES</p>
       {props.cart.cart.map((item, idx) => (
-        <div>{item.displayName}</div>
+        <div key={idx}>{item.name}</div>
       ))}
       Total: {props.cart.totalItems}
     </>

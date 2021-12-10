@@ -5,7 +5,6 @@ import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 
 function Products(props) {
-  console.log(props.categories);
   return (
     <>
       <p>PRODUCTS</p>
@@ -24,6 +23,7 @@ function Products(props) {
                   <Button
                     onClick={() => {
                       props.decrement(product.name);
+                      props.addToCart(product);
                     }}
                   >
                     Buy {product.name}!
@@ -41,10 +41,10 @@ function Products(props) {
 
 // layer the state to props
 const mapStateToProps = state => {
-  console.log(state);
   return {
     products: state.products,
     categories: state.categories,
+    cart: state.cart,
   };
 };
 // this allows actions to be pumped through our reducer.
@@ -52,6 +52,7 @@ const mapDispatchToProps = dispatch => ({
   decrement: product =>
     dispatch({ type: 'UPDATE_INVENTORY', payload: product }),
   reset: () => dispatch({ type: 'RESET_INVENTORY' }),
+  addToCart: item => dispatch({ type: 'ADD_ITEM_CART', payload: item }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Products);

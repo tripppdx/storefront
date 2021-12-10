@@ -1,7 +1,18 @@
-export default function Header() {
+import { connect } from 'react-redux';
+
+function Header(props) {
   return (
     <>
-      <p>HEADER</p>
+      <div className="storeHeader">
+        <p>STOREFRONT</p>
+        <p>Cart: {props.cart.totalItems}</p>
+      </div>
     </>
   );
 }
+
+const mapStateToProps = state => ({
+  cart: state.cart,
+});
+
+export default connect(mapStateToProps)(Header);
