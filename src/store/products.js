@@ -6,6 +6,7 @@ let initialState = {
       description: 'expensive communication device',
       price: 999,
       inventory: 10,
+      categoryId: '1',
     },
     {
       name: 'PS5',
@@ -13,6 +14,7 @@ let initialState = {
       description: 'gaming console',
       price: 500,
       inventory: 10,
+      categoryId: '1',
     },
     {
       name: 'bananas',
@@ -20,6 +22,7 @@ let initialState = {
       description: 'monkeys love them',
       price: 5,
       inventory: 10,
+      categoryId: '3',
     },
     {
       name: 'salmon',
@@ -27,6 +30,7 @@ let initialState = {
       description: 'full of omega-3',
       price: 10,
       inventory: 10,
+      categoryId: '3',
     },
   ],
 };
@@ -38,7 +42,6 @@ function productReducer(state = initialState, action) {
     case 'UPDATE_INVENTORY':
       let products = state.products.map(product => {
         if (product.name === payload) {
-          console.log('STATE', product.name);
           return { ...product, inventory: product.inventory - 1 };
         } else {
           return product;
