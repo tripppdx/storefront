@@ -6,11 +6,14 @@ function SimpleCart(props) {
   // });
 
   // console.log(data);
+  console.log('props', props);
   return (
     <>
       <p>CART</p>
       {props.cart.cart.map((item, idx) => (
-        <div key={idx}>{item.name}</div>
+        <div key={idx}>
+          {item.name} count: {item.itemCount}
+        </div>
       ))}
       Total: {props.cart.totalItems}
     </>
