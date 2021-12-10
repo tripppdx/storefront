@@ -1,14 +1,16 @@
 let initialState = {
   categories: [
     {
-      name: 'Electronics',
+      categoryId: '1',
+      displayName: 'Electronics',
       description: 'Electronic merchandise',
-      // active: false,
+      normalizedName: 'electronics',
     },
     {
-      name: 'Food',
+      categoryId: '3',
+      displayName: 'Food',
       description: 'Food stuffs',
-      // active: false,
+      normalizedName: 'food',
     },
   ],
   active: '',

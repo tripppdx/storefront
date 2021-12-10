@@ -5,7 +5,7 @@ import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 
 function Products(props) {
-  console.log(props.products);
+  console.log(props.categories);
   return (
     <>
       <p>PRODUCTS</p>
@@ -18,16 +18,19 @@ function Products(props) {
         {props.products.products.map((product, idx) => {
           return (
             <Grid key={idx} item>
-              <Card>
-                <Button
-                  onClick={() => {
-                    props.decrement(product.name);
-                  }}
-                >
-                  Buy {product.name}!
-                </Button>
-                <Typography>{product.inventory}</Typography>
-              </Card>
+              {' '}
+              {props.categories.active === product.categoryId ? (
+                <Card>
+                  <Button
+                    onClick={() => {
+                      props.decrement(product.name);
+                    }}
+                  >
+                    Buy {product.name}!
+                  </Button>
+                  <Typography>{product.inventory}</Typography>
+                </Card>
+              ) : null}
             </Grid>
           );
         })}
@@ -41,6 +44,7 @@ const mapStateToProps = state => {
   console.log(state);
   return {
     products: state.products,
+    categories: state.categories,
   };
 };
 // this allows actions to be pumped through our reducer.

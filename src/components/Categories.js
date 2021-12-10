@@ -1,21 +1,20 @@
 import { connect } from 'react-redux';
 
 function Categories(props) {
-  const handleClick = e => {
-    props.setCategory(e.target.id);
-  };
   return (
     <>
       <p>CATEGORIES</p>
       {props.categories.categories.map((category, idx) => (
         <div
-          onClick={handleClick}
-          id={category.name}
-          name={category.name}
-          value={category.name}
+          onClick={() => {
+            props.setCategory(category.categoryId);
+          }}
+          id={category.displayName}
+          name={category.displayName}
+          value={category.displayName}
           key={idx}
         >
-          {category.name}
+          {category.displayName}
         </div>
       ))}
       Active: {props.categories.active}
