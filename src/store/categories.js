@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 let initialState = {
   categories: [],
   active: '',
@@ -28,7 +29,6 @@ export const fetchCategories = () => async dispatch => {
   const response = await axios.get(
     'https://api-integration-server.herokuapp.com/categories'
   );
-  console.log(response.data.results);
   dispatch({
     type: 'FETCH_CATEGORIES',
     payload: response.data.results,

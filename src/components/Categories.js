@@ -7,15 +7,13 @@ function Categories({ categories, setCategory, getCategories }) {
     getCategories();
   }, [getCategories]);
 
-  console.log(categories);
-
   return (
     <>
       <p>CATEGORIES</p>
       {categories.categories.map((category, idx) => (
         <div
           onClick={() => {
-            setCategory(category.displayName);
+            setCategory(category.id);
           }}
           id={category.displayName}
           name={category.displayName}
