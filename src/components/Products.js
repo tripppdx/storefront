@@ -37,7 +37,7 @@ function Products({ products, getProducts, addToCart, decrement, categories }) {
                   >
                     Buy {product.name}!
                   </Button>
-                  {/* <Typography>{product.inventory}</Typography> */}
+                  <Typography>{product.inventoryCount}</Typography>
                 </Card>
               ) : null}
             </Grid>
