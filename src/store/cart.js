@@ -9,7 +9,7 @@ function cartReducer(state = initialState, action) {
   switch (type) {
     case 'ADD_ITEM_CART':
       let totalItems = state.totalItems + 1;
-      let cart = state.cart;
+      let cart = [...state.cart];
       let newItem = payload;
       if (cart.filter(item => item.name === newItem.name).length > 0) {
         cart.forEach(cartItem => {

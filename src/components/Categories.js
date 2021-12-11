@@ -1,13 +1,21 @@
 import { connect } from 'react-redux';
+import { useEffect } from 'react';
+import { fetchCategories } from '../store/categories';
 
-function Categories(props) {
+function Categories({ categories, setCategory, getCategories }) {
+  useEffect(() => {
+    getCategories();
+  }, [getCategories]);
+
+  console.log(categories);
+
   return (
     <>
       <p>CATEGORIES</p>
-      {props.categories.categories.map((category, idx) => (
+      {categories.categories.map((category, idx) => (
         <div
           onClick={() => {
-            props.setCategory(category.categoryId);
+            setCategory(category.displayName);
           }}
           id={category.displayName}
           name={category.displayName}
@@ -17,7 +25,7 @@ function Categories(props) {
           {category.displayName}
         </div>
       ))}
-      Active: {props.categories.active}
+      Active: {categories.active}
     </>
   );
 }
@@ -32,6 +40,7 @@ const mapDispatchToProps = dispatch => ({
   setCategory: category =>
     dispatch({ type: 'SET_ACTIVE_CATEGORY', payload: category }),
   reset: () => dispatch({ type: 'RESET_ACTIVE' }),
+  getCategories: () => dispatch(fetchCategories()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Categories);
