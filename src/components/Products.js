@@ -3,8 +3,17 @@ import Button from '@mui/material/Button';
 import { Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
+import { fetchProducts } from '../store/products';
+import { useEffect } from 'react';
 
-function Products(props) {
+function Products({ products, getProducts, addToCart, decrement, categories }) {
+  useEffect(() => {
+    getProducts();
+  }, [getProducts]);
+
+  console.log('PRODUCTS', products);
+  console.log('ACTIVE', categories.active);
+
   return (
     <>
       <p>PRODUCTS</p>
@@ -14,21 +23,21 @@ function Products(props) {
         container
         spacing={1}
       >
-        {props.products.products.map((product, idx) => {
+        {products.products.map((product, idx) => {
           return (
             <Grid key={idx} item>
               {' '}
-              {props.categories.active === product.categoryId ? (
+              {categories.active === parseInt(product.categoryId) ? (
                 <Card>
                   <Button
                     onClick={() => {
-                      props.decrement(product.name);
-                      props.addToCart(product);
+                      decrement(product.name);
+                      addToCart(product);
                     }}
                   >
                     Buy {product.name}!
                   </Button>
-                  <Typography>{product.inventory}</Typography>
+                  <Typography>{product.inventoryCount}</Typography>
                 </Card>
               ) : null}
             </Grid>
@@ -53,6 +62,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch({ type: 'UPDATE_INVENTORY', payload: product }),
   reset: () => dispatch({ type: 'RESET_INVENTORY' }),
   addToCart: item => dispatch({ type: 'ADD_ITEM_CART', payload: item }),
+  getProducts: () => dispatch(fetchProducts()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Products);

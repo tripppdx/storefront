@@ -1,4 +1,5 @@
-import { createStore, combineReducers } from 'redux';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
+import thunk from './middleware/thunk.js';
 
 import categoryReducer from './categories';
 import productReducer from './products';
@@ -10,8 +11,13 @@ let reducers = combineReducers({
   cart: cartReducer,
 });
 
-const store = () => {
-  return createStore(reducers);
+// const store = () => {
+//   return createStore(reducers);
+// };
+
+let store = () => {
+  // the second param of creatStore is for middleware
+  return createStore(reducers, applyMiddleware(thunk));
 };
 
 export default store;
