@@ -10,7 +10,16 @@ Netlify: https://fervent-swartz-3cb864.netlify.app
 
 An online shopping portal for a fictional store.
 
-### Phase 2 Requirements - Lab: Class 27
+### Phase 3 Requirements - Lab Class 38
+
+In phase 3, we will be connecting our Virtual Store to a live API so that our data is persistent and able to be separately managed.
+
+The user stories from Phases 1 and 2 remain unchanged. For this phase, we are now adding the following new user stories to meet the new requirements.
+
+- As a user, I want to interact with live inventory so that I have confidence that the displayed products are in stock
+- gstAs a user, I want to know to that when I add an item to my cart, that it is removed from inventory so that no other users can purchase it
+
+### Phase 2 Requirements - Lab: Class 37
 
 In phase 2, we will be adding the “Add to Cart” feature to our application, which will allow our users to not only browse items in the store, but also select them and have them persist in their “shopping cart” for later purchase.
 
