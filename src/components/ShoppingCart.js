@@ -3,17 +3,49 @@ import Container from '@mui/material/Container';
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import { connect } from 'react-redux';
 
-export default function ShoppingCart() {
+function ShoppingCart(props) {
   return (
     <>
       <Container
         style={{
+          border: '1px solid lightgrey',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
+          marginTop: '5rem',
+          width: '60%',
+          padding: '2%',
+          boxShadow: 'rgba(0, 0, 0, 0.3) 0px 1px 38px',
         }}
       >
+        <h3>Order Summary</h3>
+        {props.cart.cart.map((item, idx) => (
+          <p
+            key={idx}
+            style={{
+              display: 'flex',
+              width: '100%',
+              justifyContent: 'space-between',
+            }}
+          >
+            <span>
+              {item.name} {item.itemCount > 1 ? <>x({item.itemCount})</> : null}
+            </span>
+            <span>${item.price * item.itemCount}</span>
+          </p>
+        ))}
+        <p
+          style={{
+            display: 'flex',
+            width: '100%',
+            justifyContent: 'space-between',
+          }}
+        >
+          <span>Total</span>
+          <span>${props.cart.totalBill}</span>
+        </p>
         <Box
           style={{ display: 'flex' }}
           component="form"
@@ -41,3 +73,11 @@ export default function ShoppingCart() {
     </>
   );
 }
+const mapStateToProps = state => {
+  return {
+    products: state.products,
+    cart: state.cart,
+  };
+};
+
+export default connect(mapStateToProps)(ShoppingCart);
