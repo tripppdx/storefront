@@ -4,8 +4,26 @@ function Header(props) {
   return (
     <>
       <div className="storeHeader">
-        <p>STOREFRONT</p>
-        <p>Cart: {props.cart.totalItems}</p>
+        <a
+          href="/"
+          style={{
+            marginLeft: '2rem',
+            textDecoration: 'none',
+            fontSize: '3rem',
+          }}
+        >
+          STOREFRONT
+        </a>
+        <a
+          href="/cart"
+          style={{
+            marginRight: '2rem',
+            textDecoration: 'none',
+            fontSize: '1.1rem',
+          }}
+        >
+          Cart: {props.cart.totalItems}
+        </a>
       </div>
     </>
   );

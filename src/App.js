@@ -1,6 +1,6 @@
-import './App.css';
+import './App.scss';
 
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store/index.js';
 import Header from './components/Header';
@@ -14,22 +14,23 @@ function App() {
   return (
     <>
       <Provider store={store()}>
+        <Header />
         <Router>
-          <Switch>
-            <Route exact path="/">
-              <Header />
-              <Categories />
-              <Products />
-              <SimpleCart />
-              <Footer />
-            </Route>
-            <Route exact path="/cart">
-              <Header />
-              <ShoppingCart />
-              <Footer />
-            </Route>
-          </Switch>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <Categories />
+                  <Products />
+                  <SimpleCart />
+                </>
+              }
+            />
+            <Route exact path="/cart" element={<ShoppingCart />} />
+          </Routes>
         </Router>
+        <Footer />
       </Provider>
     </>
   );

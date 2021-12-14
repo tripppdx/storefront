@@ -10,6 +10,15 @@ Netlify: https://fervent-swartz-3cb864.netlify.app
 
 An online shopping portal for a fictional store.
 
+### Phase 4 Requirements
+
+In phase 4, we will be completing work on our Virtual Store by adding a two full page views to the application: Product Details and Checkout
+
+The user stories from Phases 1, 2 and 3 remain unchanged. For this phase, we are now adding the following new user stories to meet the new requirements.
+
+- As a user, I want to see a full detail view of a product so that I can make a more informed choice about purchasing it.
+- As a user, I want to view my full cart and initiate the checkout process so that I can purchase my items and have them delivered
+
 ### Phase 3 Requirements - Lab Class 38
 
 In phase 3, we will be connecting our Virtual Store to a live API so that our data is persistent and able to be separately managed.
