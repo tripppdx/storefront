@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
-function Header(props) {
+function Header({ cart }) {
   return (
     <>
       <div className="storeHeader">
-        <a
-          href="/"
+        <Link
+          to="/"
           style={{
             marginLeft: '2rem',
             textDecoration: 'none',
@@ -13,17 +14,17 @@ function Header(props) {
           }}
         >
           STOREFRONT
-        </a>
-        <a
-          href="/cart"
+        </Link>
+        <Link
+          to="/cart"
           style={{
             marginRight: '2rem',
             textDecoration: 'none',
             fontSize: '1.1rem',
           }}
         >
-          Cart: {props.cart.totalItems}
-        </a>
+          Cart: {cart.totalItems}
+        </Link>
       </div>
     </>
   );

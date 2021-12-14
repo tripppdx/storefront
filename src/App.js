@@ -14,8 +14,8 @@ function App() {
   return (
     <>
       <Provider store={store()}>
-        <Header />
         <Router>
+          <Header />
           <Routes>
             <Route
               path="/"
@@ -29,8 +29,8 @@ function App() {
             />
             <Route exact path="/cart" element={<ShoppingCart />} />
           </Routes>
+          <Footer />
         </Router>
-        <Footer />
       </Provider>
     </>
   );
