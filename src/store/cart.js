@@ -1,6 +1,7 @@
 let initialState = {
   cart: [],
   totalItems: 0,
+  totalBill: 0,
 };
 
 function cartReducer(state = initialState, action) {
@@ -21,10 +22,17 @@ function cartReducer(state = initialState, action) {
             }
           });
         } else {
-          cart.push({ name: newItem.name, itemCount: 1 });
+          cart.push({ name: newItem.name, price: newItem.price, itemCount: 1 });
         }
       }
-      return { cart, totalItems };
+      let totalBill = 0;
+      let i = 0;
+      while (cart[i]) {
+        let sum = cart[i].price * cart[i].itemCount;
+        totalBill = totalBill + sum;
+        i++;
+      }
+      return { cart, totalItems, totalBill };
 
     case 'RESET_CART':
       return initialState;
