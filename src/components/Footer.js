@@ -1,7 +1,9 @@
+// import CopyrightIcon from '@mui/icons-material/Copyright';
+
 export default function Footer() {
   return (
     <>
-      <p> FOOTER </p>
+      <span> &copy; 2021</span>
     </>
   );
 }

@@ -1,0 +1,22 @@
+storeBody {
+  display: flex;
+  background-color: rgb(222, 137, 27);
+}
+root {
+  background: rgb(222, 137, 27);
+}
+.storeHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  height: 6rem;
+  width: 100%;
+  overflow: hidden;
+  background-color: #b9d14b;
+  background-size: cover;
+  padding-bottom: 0;
+  color: rgb(81, 27, 131);
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 38px;
+}

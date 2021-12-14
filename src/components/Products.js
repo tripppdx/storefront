@@ -53,7 +53,6 @@ const mapStateToProps = state => {
   return {
     products: state.products,
     categories: state.categories,
-    cart: state.cart,
   };
 };
 // this allows actions to be pumped through our reducer.
