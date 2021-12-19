@@ -68,7 +68,15 @@ function ShoppingCart(props) {
             <TextField required id="outlined-required" label="cvv" />
           </div>
         </Box>
-        <Button> Buy Now</Button>
+        <Button
+          variant="contained"
+          style={{
+            width: '15rem',
+          }}
+        >
+          {' '}
+          Buy Now
+        </Button>
       </Container>
     </>
   );

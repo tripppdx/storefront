@@ -1,16 +1,26 @@
 import { connect } from 'react-redux';
+import { Paper } from '@mui/material';
 
 function SimpleCart(props) {
   return (
-    <>
-      <p>CART</p>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'flex-end',
+      }}
+    >
       {props.cart.cart.map((item, idx) => (
-        <div key={idx}>
-          {item.name} count: {item.itemCount}
-        </div>
+        <Paper
+          square
+          elevation={3}
+          key={idx}
+          style={{ width: '8%', textAlign: 'center', margin: '.5rem' }}
+        >
+          {item.name} ({item.itemCount})
+        </Paper>
       ))}
-      Total: {props.cart.totalItems}
-    </>
+    </div>
   );
 }
 
