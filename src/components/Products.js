@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import { Typography } from '@mui/material';
-import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import { fetchProducts } from '../store/products';
 import { useEffect } from 'react';
