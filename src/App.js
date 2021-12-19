@@ -17,6 +17,7 @@ function App() {
         <Router>
           <Header />
           <Routes>
+            <Route path="/cart" element={<ShoppingCart />} />
             <Route
               path="/"
               element={
@@ -27,7 +28,6 @@ function App() {
                 </>
               }
             />
-            <Route exact path="/cart" element={<ShoppingCart />} />
           </Routes>
           <Footer />
         </Router>

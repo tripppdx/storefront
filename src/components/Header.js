@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Header({ cart }) {
   return (
@@ -11,6 +11,7 @@ function Header({ cart }) {
             marginLeft: '2rem',
             textDecoration: 'none',
             fontSize: '3rem',
+            fontWeight: 'normal',
           }}
         >
           STOREFRONT
@@ -21,6 +22,7 @@ function Header({ cart }) {
             marginRight: '2rem',
             textDecoration: 'none',
             fontSize: '1.1rem',
+            fontWeight: 'normal',
           }}
         >
           Cart: {cart.totalItems}
